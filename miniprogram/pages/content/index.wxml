@@ -1,0 +1,29 @@
+<!--pages/content/index.wxml-->
+<view class="page">
+  <view class="page__bd">
+  <block wx:for="{{question}}" wx:key="item">
+    <view class="weui-panel">
+      <view class="weui-panel__hd">{{item.question}}</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <view class="weui-cells weui-cells_after-title">
+            <radio-group bindchange="radioChange">
+                <label class="weui-cell weui-check__label" wx:for="{{item.selection}}"  wx:for-item="selection" wx:key="item">
+                    <radio class="weui-check" value="{{item.index}}-{{selection.value}}" checked="{{selection.checked}}"/>
+                    <view class="weui-cell__bd">{{selection.value}}</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{selection.checked}}">
+                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</block>
+<text>\n</text>
+<button class="weui-btn" type="primary" disabled="{{button_disabled}}" bindtap='buttonClick'>{{button_content}}</button>
+  </view>
+</view>

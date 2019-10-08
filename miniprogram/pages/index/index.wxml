@@ -1,0 +1,75 @@
+<!--pages/index/index.wxml-->
+<view>
+  <view class="page__bd">
+    <view>
+      <swiper class="swiper" autoplay="true" interval="2000">
+        <swiper-item wx:for="{{hot_test}}" wx:key="item">
+          <image src="{{item.src}}" data-Tid='{{item.tid}}' bindtap='hotClick' mode="aspectFill" class="img"></image>
+          <view class="child">{{item.title}}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells  weui-grids">
+      <block wx:for="{{category}}" wx:key="item">
+        <navigator url="{{item.url}}" class="weui-grid" hover-class="weui-grid_active">
+          <image class="weui-grid__icon" src="{{item.src}}" />
+          <view class="weui-grid__label">{{item.title}}</view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+  
+  <view class="weui-cells weui-cells_after-title">
+  <view class="page__hd">
+        <view class="page__title">热门测试</view>
+  </view>
+        <block wx:for="{{content}}" wx:key="item">
+          <navigator url="/pages/content/index?tid={{item.tid}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <block wx:if="{{item.type}}">
+              <view class="weui-cell__hd">
+                <image src="/image/content/{{item.icon}}.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+              </view>
+              <view class="weui-cell__bd">{{item.title}}</view>
+            </block>
+            <block wx:else>
+              <view class="weui-cell__hd">
+                <image src="/image/content/{{item.icon}}.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;" />
+              </view>
+              <view class="weui-cell__bd">
+                <view>{{item.title}}</view>
+                <view style="font-size: 13px;color: #888888;">{{item.desc}}</view>
+              </view>
+            </block>
+          </navigator>
+        </block>
+      </view>
+      <text>\n</text>
+  <view class="weui-footer">
+    <view class="weui-footer__text">爱测试 Copyright © 2019</view>
+  </view>
+  <text>\n\n\n</text>
+  <view class="page__bd">
+    <view class="weui-tabbar">
+      <view class="weui-tabbar__item weui-bar__item_on">
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/test_1.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">测试首页</view>
+      </view>
+      <view class="weui-tabbar__item" bindtap='toRandom'>
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/random.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">随机一测</view>
+      </view>
+      <view class="weui-tabbar__item" bindtap='toUser'>
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/user_1.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">我的测试</view>
+      </view>
+    </view>
+  </view>
+</view>

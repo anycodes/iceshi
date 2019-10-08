@@ -1,0 +1,36 @@
+<!--pages/result/index.wxml-->
+<import src="../../dependence/wxParse/wxParse.wxml" />
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{page_title}}</view>
+    <view class="page__desc">* 本结果仅供参考</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-article">
+      <template is="wxParse" data="{{wxParseData:insertData.nodes}}" />
+    </view>
+  </view>
+  <button class="weui-btn" type="primary" bindtap='buttonClick'>再测一次</button>
+  <view class="page__bd">
+    <view class="weui-tabbar">
+      <view class="weui-tabbar__item" bindtap='toIndex'>
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/test_1.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">测试首页</view>
+      </view>
+      <view class="weui-tabbar__item" bindtap='toRandom'>
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/random.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">随机一测</view>
+      </view>
+      <view class="weui-tabbar__item" bindtap='toUser'>
+        <view style="position: relative;display:inline-block;">
+          <image src="/image/tabbar/user_1.png" class="weui-tabbar__icon"></image>
+        </view>
+        <view class="weui-tabbar__label">我的测试</view>
+      </view>
+    </view>
+  </view>
+</view>

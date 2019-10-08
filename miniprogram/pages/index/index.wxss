@@ -1,0 +1,21 @@
+/* pages/index/index.wxss */
+.weui-tabbar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.child {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: left;
+  background: white;
+  opacity: 0.8
+}  
+.img {
+  width: 100%;
+}

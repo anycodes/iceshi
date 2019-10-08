@@ -1,0 +1,36 @@
+<!--pages/list/index.wxml-->
+<view>
+  <view class="page__bd">
+    <block wx:if="{{has_data}}">
+      <view class="weui-cells weui-cells_after-title">
+        <block wx:for="{{content}}" wx:key="item">
+          <navigator url="/pages/content/index?tid={{item.tid}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <block wx:if="{{item.type}}">
+              <view class="weui-cell__hd">
+                <image src="/image/content/{{item.icon}}.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+              </view>
+              <view class="weui-cell__bd">{{item.title}}</view>
+            </block>
+            <block wx:else>
+              <view class="weui-cell__hd">
+                <image src="/image/content/{{item.icon}}.png" style="margin-right: 16px;vertical-align: middle;width:20px; height: 20px;" />
+              </view>
+              <view class="weui-cell__bd">
+                <view>{{item.title}}</view>
+                <view style="font-size: 13px;color: #888888;">{{item.desc}}</view>
+              </view>
+            </block>
+          </navigator>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+      </view>
+    </block>
+  </view>
+  <view class="weui-footer">
+    <view class="weui-footer__text">爱测试 Copyright © 2019</view>
+  </view>
+</view>
